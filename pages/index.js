@@ -4,7 +4,7 @@ const DUMMY_MEETUPS = [
     {
         id: 'm1',
         title: "A first Meetup",
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Tharlam_Monastery_gathering.jpg/800px-Tharlam_Monastery_gathering.jpg',
+        image: 'https://d26toa8f6ahusa.cloudfront.net/wp-content/uploads/2020/11/17092527/iStock-1280526363.jpg',
         address: 'Gaspe Road 5, 12345 Tokyo'
     },
         {
@@ -17,7 +17,6 @@ const DUMMY_MEETUPS = [
 
 function HomePage() {
     return <MeetupList meetups={DUMMY_MEETUPS} />
-    
 }
 
 export default HomePage;
