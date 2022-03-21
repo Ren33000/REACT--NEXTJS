@@ -1,4 +1,5 @@
 import MeetupDetail from "../../components/meetups/MeetupDetail";
+import { MongoClient} from 'mongodb';
 
 function MeetupDetails() {
     return (

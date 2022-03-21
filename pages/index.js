@@ -35,10 +35,23 @@ function HomePage(props) {
 
 export async function getStaticProps() {
     // fetch data from an API
-    MongoClient.connect();
+    const client = await MongoClient.connect("mongodb+srv://Ren33000:s2!cUEzz4qk3p8r@cluster0.dpggy.mongodb.net/meetups?retryWrites=true&w=majority");
+    const db = client.db();
+
+    const meetupsCollection = db.collection("meetups");
+
+    const meetups = await meetupsCollection.find().toArray();
+
+    client.close();
+
     return {
         props: {
-            meetups: DUMMY_MEETUPS
+            meetups: meetups.map(meetup => ({
+                title: meetup.title,
+                address: meetup.address,
+                image: meetup.image,
+                id: meetup._id.toString(),
+            }))
         },
         revalidate: 1
     };
