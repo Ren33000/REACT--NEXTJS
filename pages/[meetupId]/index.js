@@ -1,13 +1,13 @@
 import MeetupDetail from "../../components/meetups/MeetupDetail";
-import { MongoClient } from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb';
 
-function MeetupDetails() {
+function MeetupDetails(props) {
     return (
         <MeetupDetail 
-            image="https://d26toa8f6ahusa.cloudfront.net/wp-content/uploads/2020/11/17092527/iStock-1280526363.jpg"
-            title="A first Meetup"
-            address= 'Gaspe Road 5, 12345 Tokyo'
-            description= "The very first meetup on this app!"
+            image={props.meetupData.image}
+            title={props.meetupData.title}
+            address= {props.meetupData.address}
+            description= {props.meetupData.description}
         />
     )
 }
@@ -19,6 +19,8 @@ export async function getStaticPaths() {
     const meetupsCollection = db.collection("meetups");
 
     const meetups = await meetupsCollection.find({}, {_id: 1}).toArray();
+
+    client.close();
 
     return {
         fallback: false ,
@@ -38,21 +40,28 @@ export async function getStaticPaths() {
     }
 }
 
-export function getStaticProps(context) {
+export async function getStaticProps(context) {
     // fetch data for a single meetup
-
     const meetupId = context.params.meetupId;
-    console.log(meetupId);
+
+    const client = await MongoClient.connect("mongodb+srv://Ren33000:s2!cUEzz4qk3p8r@cluster0.dpggy.mongodb.net/meetups?retryWrites=true&w=majority");
+    const db = client.db();
+
+    const meetupsCollection = db.collection("meetups");
+
+    const selectedMeetup = await meetupsCollection.findOne({_id: ObjectId(meetupId)});
+
+    client.close();
 
     return {
         props: {
             meetupData: {
-                image: 'https://thumbs.dreamstime.com/z/ikebukuro-shopping-street-tokyo-japan-november-people-shop-attokyo-city-district-night-capital-million-live-its-173860178.jpg',
-                id: meetupId,
-                title: 'First Meetup',
-                address: 'Ikebukuro West gate Park',
-                description: 'A modified version'
-            }
+                id: selectedMeetup._id.toString(),
+                title: selectedMeetup.title,
+                address: selectedMeetup.address,
+                image: selectedMeetup.image,
+                description: selectedMeetup.description,
+            },
         }
     }
 }
