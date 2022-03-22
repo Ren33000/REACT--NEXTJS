@@ -1,6 +1,9 @@
 import MeetupList from '../components/meetups/MeetupList';
 import { MongoClient } from 'mongodb';
 
+import Head from 'next/head';
+import { Fragment } from 'react/cjs/react.production.min';
+
 const DUMMY_MEETUPS = [
     {
         id: 'm1',
@@ -17,7 +20,16 @@ const DUMMY_MEETUPS = [
 ];
 
 function HomePage(props) {
-    return <MeetupList meetups={props.meetups} />
+    return (
+    <Fragment>
+        <Head>
+            <title>React Meetups</title>
+            <meta name="description" content="A huge list of React Meeetups!"/>
+        </Head>
+        <MeetupList meetups={props.meetups} />
+    </Fragment>
+    )
+    
 }
 
 // export async function getServerSideProps(context) {
