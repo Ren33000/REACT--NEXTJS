@@ -1,12 +1,9 @@
-<h1 align="center">NextJS & MongoDB </h1>
-<h3 align="center">React App Meetup</h3>
+<h1 align="center">React App with NextJS & MongoDB </h1>
 
-
+<h5 align="center">Homepage</h5>
 <p align="center">
-  <img src="https://i.ytimg.com/vi/yqWzCV0kU_c/maxresdefault.jpg"/>
+  <img src="https://github.com/Ren33000/React--NEXTJS/blob/master/Screen%20Shot%202022-03-23%20at%2011.18.49.png"/>
 </p>
-
-
 
 # Concepts
 * React App
@@ -14,6 +11,16 @@
 * Static Site Generation with getStaticProps/ getStaticPaths/ getServerSideProps
 * Fetching data from MongoDB
 * Deployment on Vercel
+
+<h5 align="center">Meetup details</h5>
+<p align="center">
+  <img src="https://github.com/Ren33000/React--NEXTJS/blob/master/Screen%20Shot%202022-03-23%20at%2011.19.06.png"/>
+</p>
+
+<h5 align="center">Add meetup form connected to MongoDB</h5>
+<p align="center">
+  <img src="https://github.com/Ren33000/React--NEXTJS/blob/master/Screen%20Shot%202022-03-23%20at%2011.19.14.png"/>
+</p>
 
 
 
