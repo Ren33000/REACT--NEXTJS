@@ -1,3 +1,22 @@
+<h1 align="center">NextJS & MongoDB </h1>
+<h3 align="center">React App Meetup</h3>
+
+
+<p align="center">
+  <img src="https://i.ytimg.com/vi/yqWzCV0kU_c/maxresdefault.jpg"/>
+</p>
+
+
+
+# Concepts
+* React App
+* Nextjs Pre-rendering
+* Static Site Generation with getStaticProps/ getStaticPaths/ getServerSideProps
+* Fetching data from MongoDB
+* Deployment on Vercel
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
